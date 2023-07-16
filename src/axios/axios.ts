@@ -23,7 +23,7 @@ export class Request {
     // axios 实例
     instance: AxiosInstance
     // 基础配置，url和超时时间
-    baseConfig: AxiosRequestConfig = { baseURL: 'http://localhost:8080', timeout: 60000 }
+    baseConfig: AxiosRequestConfig = { baseURL: 'http://121.4.71.154:8080', timeout: 60000 }
 
     constructor(config: AxiosRequestConfig) {
         // 使用axios.create创建axios实例

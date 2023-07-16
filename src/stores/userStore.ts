@@ -16,7 +16,8 @@ export const useUserStore = defineStore('user', {
         accountNumber: '',
         password: '',
         phoneNumber: '',
-        idNumber: ''
+        idNumber: '',
+        permission: ''
     }),
     getters: {
         getAccountNumber(): string {
@@ -38,14 +39,14 @@ export const useUserStore = defineStore('user', {
 
         addNowAccount(
             accountNumber: string,
-            password: string,
-            phoneNumber: string,
-            idNumber: string
+            idNumber: string,
+            permission: string,
+            phoneNumber: string
         ) {
             this!.accountNumber = accountNumber
-            this!.password = password
-            this!.phoneNumber = phoneNumber
             this!.idNumber = idNumber
+            this!.permission = permission
+            this!.phoneNumber = phoneNumber
         }
     }
 })

@@ -73,6 +73,8 @@ import { reactive, ref } from 'vue'
 import { ElMessage } from 'element-plus'
 import type { transferResponse } from '@/inferface/responseInterface'
 import type { EpPropMergeType } from 'element-plus/es/utils/vue/props/types'
+import type { type } from 'os'
+import type { cardListItem } from '@/inferface/responseInterface'
 const labelPosition = ref<
     EpPropMergeType<StringConstructor, 'top' | 'right' | 'left', unknown> | undefined
 >('top')
@@ -83,7 +85,8 @@ const sizeForm = reactive({
     cardnumber2: '',
     balance: ''
 })
-const tableData = ref([])
+interface cardListType extends cardListItem {}
+const tableData = ref<cardListType[]>([])
 interface response {
     message: string
     code: number
@@ -125,7 +128,7 @@ interface statementResponse {
 
 const handleSearchAccountStatement = () => {
     axios
-        .get('/transaction/queryBalance', {
+        .get('/transaction/queryStatement', {
             params: {
                 cardNumber: sizeForm.cardnumber1
             }
