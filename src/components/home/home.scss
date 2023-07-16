@@ -1,0 +1,286 @@
+.centerbody {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    .warpper {
+        margin-top: 30px;
+        width: 80%;
+        .header {
+            margin-bottom: 50px;
+            /*-------text -----*/
+            .text-hasmokan {
+                font-size: 15px;
+                background-image: linear-gradient(15deg, darkgoldenrod, white, gold);
+                background-size: 500%;
+                display: initial;
+                -webkit-background-clip: text;
+                white-space: nowrap;
+                color: transparent;
+                animation: bgAnimation 10s linear infinite;
+            }
+            @keyframes bgAnimation {
+                0% {
+                    background-position: 0% 50%;
+                }
+                50% {
+                    background-position: 100% 50%;
+                }
+                100% {
+                    background-position: 0% 50%;
+                }
+            }
+
+            .titleTextBox {
+                font-family: AlimamaFangYuanTiVF-Thin;
+                font-size: 40px;
+                font-weight: bold;
+                display: flex;
+                justify-content: center;
+                margin: 20px 0 20px 0;
+            }
+            &-line {
+                margin: 0 auto;
+                width: 100px;
+                height: 10px;
+                background-color: rgb(255, 165, 5);
+            }
+            span {
+                display: flex;
+                justify-content: center;
+            }
+        }
+        .middle {
+            width: 100%;
+            .headerimg {
+                display: flex;
+                justify-content: center;
+                img {
+                    width: 80%;
+                }
+            }
+            .flexbox {
+                cursor: default;
+                font-family: "DingTalkJinBuTi-Regular";
+                margin: 0 auto;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 80%;
+                li {
+                    font-weight: 900;
+                    font-family: "AlimamaFangYuanTiVF-Thin";
+                }
+            }
+        }
+    }
+}
+
+//ESG的各种属性
+.box1,
+.box2,
+.box3 {
+    margin-top: 30px;
+    ul {
+        font-size: 2empx;
+        margin-left: 15%;
+        // list-style-type: none;
+    }
+    li {
+        font-weight: lighter; //为啥不起作用
+        line-height: 2em;
+        font-family: "SimHei";
+        text-align: left;
+        // list-style-type: none;
+        margin: 0 auto;
+        width: 35%;
+    }
+    width: 100%;
+}
+
+.box2,
+.box3 {
+    border-left: 2px rgb(255, 165, 5) solid;
+}
+
+.succ {
+    margin-top: 100px;
+    &-header {
+        cursor: default;
+        width: 100%;
+        height: 200px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        &::after {
+            content: "";
+            background: url("@/assets/img/greybackground.jpg");
+            opacity: 0.2;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            position: absolute;
+            z-index: -1;
+        }
+        &-line {
+            position: relative;
+            top: 10px;
+            margin: 0 auto;
+            width: 100px;
+            height: 10px;
+            background-color: rgb(255, 165, 5);
+        }
+        &-text {
+            font-family: "SimHei";
+            font-size: 40px;
+            text-align: center;
+            margin-top: 30px;
+        }
+        &-caselist {
+            margin-top: 60px;
+            display: flex;
+            justify-content: center;
+            img {
+                border-radius: 50%;
+                width: 100px;
+                margin-left: 40px;
+                margin-right: 40px;
+            }
+        }
+    }
+}
+
+.succ-case {
+    width: 1280px;
+    // display: flex;
+    margin: auto;
+
+    &-container {
+        vertical-align: top;
+        margin-top: 50px;
+        display: flex;
+        .succ-case-text {
+            display: flex;
+            &-header {
+                padding-left: 10px;
+                height: 32px;
+                border-left: 10px solid rgb(255, 165, 5);
+                font-family: "SimHei";
+                font-size: 31px;
+                margin: 0 auto;
+            }
+        }
+
+        .label {
+            display: flex;
+            padding-left: 11px;
+            line-height: 32px;
+            color: white;
+            font-size: 14px;
+            height: 53px;
+            width: 319px;
+            background: url("@/assets/img/label.png");
+        }
+    }
+    .flex-bottom-box {
+        display: flex;
+        margin-top: 100px;
+        position: relative;
+        .img2 {
+            // margin-top: 190px;
+            height: 430px;
+            width: 360px;
+        }
+        .img1,
+        .img3 {
+            // object-fit: cover;
+            width: 360px;
+            opacity: 0.8;
+        }
+        .container {
+            width: 720px;
+            margin-left: 150px;
+            height: 100%;
+            overflow: hidden;
+            /* 一定要开启flex布局 */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            /* 缩小0.8，方便演示 */
+            /* transform: scale(0.8); */
+            .pic {
+                margin-top: 100px;
+                position: relative;
+                /* flex布局下当前元素自动缩放时占比为1，当前所有的pic元素占比均为一，等于所有元素大小保持一致的缩放 */
+                height: 100%;
+                flex-shrink: 1;
+                flex-grow: 1;
+                /* 一定要开启 */
+                /* 要不然超出的图片会把pic图层撑开，失去最终效果 */
+                overflow: hidden;
+                transition: 1s;
+            }
+        }
+
+        .pic:hover {
+            flex-shrink: 0.2;
+            flex-grow: 0.2;
+        }
+    }
+}
+
+.div1 {
+    font-size: 26px;
+    font-style: italic;
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #909090;
+    position: absolute; /* 绝对定位 */
+    top: 35px;
+    left: 200px;
+    z-index: 5;
+}
+.div2 {
+    font-size: 15px;
+    position: absolute;
+    left: 480px;
+    z-index: 8;
+}
+.div3 {
+    font-size: 15px;
+    position: absolute;
+    left: 830px;
+    z-index: 8;
+}
+.div4 {
+    font-size: 15px;
+    position: absolute;
+    left: 1180px;
+    z-index: 8;
+}
+.diagonal-line {
+    position: absolute; /* 设置相对定位 */
+    left: 280px;
+    bottom: 45px;
+    width: 65px; /* 设置宽度 */
+    height: 2px; /* 设置高度 */
+    background-color: #cccccc; /* 设置斜线颜色 */
+    transform: rotate(120deg); /* 通过旋转实现斜线效果 */
+    transform-origin: center; /* 设置旋转的原点位置 */
+}
+.img4 {
+    position: absolute;
+    box-shadow: 0 0 5px rgb(255, 255, 255);
+    left: 400px;
+}
+.img5 {
+    position: absolute;
+    box-shadow: 0 0 5px rgb(255, 255, 255);
+    left: 750px;
+}
+.img6 {
+    position: absolute;
+    box-shadow: 0 0 5px rgb(255, 255, 255);
+    left: 1100px;
+}

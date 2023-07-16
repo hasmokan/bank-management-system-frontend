@@ -1,0 +1,232 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+.el-container {
+    //群组选择器
+    & .el-header,
+    .el-main,
+    .el-footer {
+        margin: 0;
+        padding: 0;
+    }
+}
+.el-menu {
+    li {
+        padding: 0;
+    }
+    //去掉按标签的下划线
+    a {
+        text-align: center;
+        padding: 0;
+        width: 100%;
+        display: inline-block;
+        // padding: 0 20px;
+        color: white;
+
+        /*跟随父元素的高度*/
+        height: inherit;
+        text-decoration: none;
+    }
+    justify-content: center;
+    align-items: center;
+    &-item {
+        width: 130px;
+        padding: 0;
+    }
+    // .el-button {
+    //     margin-left: 13px;
+    // }
+    .search {
+        margin-left: 50px;
+        margin-right: 50px;
+    }
+    .flex {
+        display: flex;
+        justify-content: center;
+        width: 250px;
+    }
+    .flex-grow {
+        flex-grow: 1;
+    }
+}
+// 有二级菜单的标题及子菜单菜单字体颜色
+.el-menu--collapse .el-menu .el-submenu,
+.el-menu--popup {
+    min-width: 130px !important;
+    font-family: AlimamaFangYuanTiVF-Thin;
+}
+// 面包屑
+.el-breadcrumb {
+    margin-top: 20px;
+    margin-left: 100px;
+}
+
+// 下拉菜单
+.example-showcase .el-dropdown-link {
+    cursor: pointer;
+    color: var(--el-color-primary);
+    display: flex;
+    align-items: center;
+}
+
+.el-footer {
+    display: flex;
+    width: 100%;
+    height: 500px;
+    opacity: 1;
+    background-color: rgb(59, 63, 66);
+    padding: 48px 0 34px 0;
+    flex-direction: column;
+    align-items: center;
+    font-family: AlimamaFangYuanTiVF-Thin;
+    .top {
+        display: flex;
+        width: 75%;
+        height: 100px;
+        justify-content: flex-start;
+        border-bottom: 1px solid #e2e2e2;
+        overflow: visible;
+        .top-left {
+            margin-top: 45px;
+            display: flex;
+            justify-content: flex-start;
+            width: 8%;
+            height: 35%;
+            .about {
+                color: #e2e2e2;
+                width: 100%;
+                height: 50%;
+                display: flex;
+                justify-content: flex-start;
+            }
+        }
+        .top-icon {
+            display: flex;
+            margin-top: 45px;
+            height: 35%;
+            width: 50%;
+            .iconfont {
+                margin-right: 25px;
+                margin-top: -15px;
+                font-family: "iconfont" !important;
+                font-size: 50px;
+                font-style: normal;
+                -webkit-font-smoothing: antialiased;
+                -webkit-text-stroke-width: 0.2px;
+                -moz-osx-font-smoothing: grayscale;
+                transition: color 0.3s ease-in-out;
+                color: #e2e2e2;
+            }
+            .iconfont:hover {
+                color: #faa505;
+                transition-delay: 0.1s;
+            }
+        }
+    }
+    .body {
+        cursor: default;
+        display: flex;
+        height: 350px;
+        width: 75%;
+        justify-content: flex-start;
+        margin-top: 25px;
+        border-bottom: 1px solid #e2e2e2;
+        .iconfont {
+            margin-right: 25px;
+            margin-left: 25px;
+            font-family: "iconfont" !important;
+            font-size: 50px;
+            font-style: normal;
+            -webkit-font-smoothing: antialiased;
+            -webkit-text-stroke-width: 0.2px;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        ul {
+            cursor: default;
+            display: flex;
+            margin-top: 10px;
+            flex-direction: column;
+            align-items: center;
+            list-style-type: none;
+            li {
+                cursor: default;
+                display: flex;
+                margin-top: 10px;
+                align-items: center;
+                justify-content: center;
+                color: #e2e2e2;
+            }
+        }
+        h3 {
+            color: #e2e2e2;
+            text-align: center;
+            margin-top: 15px;
+        }
+        i {
+            margin: 0 auto;
+        }
+        .one,
+        .two,
+        .three,
+        .four {
+            cursor: default;
+            div {
+                width: 100%;
+                display: flex;
+                justify-content: center;
+            }
+            width: 25%;
+            align-items: center;
+            justify-content: center;
+        }
+    }
+    .bottom {
+        cursor: default;
+        width: 75%;
+        .bottom-up {
+            display: flex;
+            justify-content: flex-start;
+            align-items: flex-start;
+            .advise {
+                display: flex;
+                flex-direction: column;
+                margin-top: 10px;
+                color: #e2e2e2;
+            }
+        }
+    }
+}
+
+.el-breadcrumb {
+    font-family: AlimamaFangYuanTiVF-Thin;
+}
+
+@font-face {
+    font-family: AlimamaFangYuanTiVF-Thin;
+    src:
+        url(https://puhuiti.oss-cn-hangzhou.aliyuncs.com/AlimamaFangYuanTiVF/AlimamaFangYuanTiVF-Thin/AlimamaFangYuanTiVF-Thin.eot)
+            format("embedded-opentype"),
+        url(https://puhuiti.oss-cn-hangzhou.aliyuncs.com/AlimamaFangYuanTiVF/AlimamaFangYuanTiVF-Thin/AlimamaFangYuanTiVF-Thin.otf)
+            format("opentype"),
+        url(https://puhuiti.oss-cn-hangzhou.aliyuncs.com/AlimamaFangYuanTiVF/AlimamaFangYuanTiVF-Thin/AlimamaFangYuanTiVF-Thin.ttf)
+            format("TrueType"),
+        url(https://puhuiti.oss-cn-hangzhou.aliyuncs.com/AlimamaFangYuanTiVF/AlimamaFangYuanTiVF-Thin/AlimamaFangYuanTiVF-Thin.woff)
+            format("woff"),
+        url(https://puhuiti.oss-cn-hangzhou.aliyuncs.com/AlimamaFangYuanTiVF/AlimamaFangYuanTiVF-Thin/AlimamaFangYuanTiVF-Thin.woff2)
+            format("woff2");
+}
+@font-face {
+    font-family: DingTalkJinBuTi-Regular;
+    src:
+        url(https://puhuiti.oss-cn-hangzhou.aliyuncs.com/DingTalkJinBuTi/DingTalkJinBuTi-Regular/DingTalkJinBuTi-Regular.eot)
+            format("embedded-opentype"),
+        url(https://puhuiti.oss-cn-hangzhou.aliyuncs.com/DingTalkJinBuTi/DingTalkJinBuTi-Regular/DingTalkJinBuTi-Regular.otf)
+            format("opentype"),
+        url(https://puhuiti.oss-cn-hangzhou.aliyuncs.com/DingTalkJinBuTi/DingTalkJinBuTi-Regular/DingTalkJinBuTi-Regular.ttf)
+            format("TrueType"),
+        url(https://puhuiti.oss-cn-hangzhou.aliyuncs.com/DingTalkJinBuTi/DingTalkJinBuTi-Regular/DingTalkJinBuTi-Regular.woff)
+            format("woff"),
+        url(https://puhuiti.oss-cn-hangzhou.aliyuncs.com/DingTalkJinBuTi/DingTalkJinBuTi-Regular/DingTalkJinBuTi-Regular.woff2)
+            format("woff2");
+}

@@ -1,0 +1,24 @@
+.headimg {
+    width: 100%;
+    height: auto;
+}
+.wrapper {
+    width: 80%;
+    height: 700px;
+    margin: 0 auto;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    form {
+        .el-button--primary {
+            background-color: rgb(255, 165, 5);
+        }
+        // .el-form-item {
+        //     label {
+        //         width: 200px;
+        //     }
+        // }
+        .ml-3 {
+            margin-left: 15px;
+        }
+    }
+}

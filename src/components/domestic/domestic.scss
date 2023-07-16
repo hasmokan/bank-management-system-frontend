@@ -1,0 +1,39 @@
+.headimg {
+    width: 100%;
+    height: auto;
+}
+.wrapper {
+    width: 1280px;
+    margin: 0 auto;
+    margin-bottom: 50px;
+}
+.card {
+    border-left: 10px solid rgb(255, 165, 5);
+    margin-bottom: 50px;
+    width: 100%;
+    display: flex;
+    &-img {
+        height: 100%;
+    }
+    &-text {
+        margin-left: 5%;
+        &-head {
+            margin-bottom: 10px;
+            font-size: 20px;
+        }
+        &-content {
+            width: 80%;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 4;
+        }
+        &-link {
+            margin-top: 20px;
+            a {
+                text-decoration: none;
+            }
+        }
+    }
+}

@@ -1,0 +1,41 @@
+{
+  "extends": "@vue/tsconfig/tsconfig.web.json",
+  "include": [
+    "src/**/*.ts",
+    "src/**/*.d.ts",
+    "src/**/*.tsx",
+    "*.ts",
+    "src/**/*.vue",
+  ],
+  "exclude": [
+
+  ],
+  "compilerOptions": {
+    "ignoreDeprecations": "5.0",
+    "allowJs": true,
+    "target": "esnext",
+    "module": "esnext",
+    "useDefineForClassFields": true,
+    "moduleResolution": "node",
+    "strict": true,
+    "jsx": "preserve",
+    "sourceMap": true,
+    "skipLibCheck": true,
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
+    "lib": ["esnext", "dom"],
+    "types": ["element-plus/global"],
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./src/*"],
+
+      "@": ["src"],
+
+    },
+    "preserveValueImports": false
+  },
+
+  "references": [{
+    "path": "./tsconfig.node.json"
+  }]
+}
