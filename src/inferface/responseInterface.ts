@@ -2,7 +2,7 @@
  * @Author: 雄恺 陈 1021056159@qq.com
  * @Date: 2023-07-16 07:58:23
  * @LastEditors: 雄恺 陈 1021056159@qq.com
- * @LastEditTime: 2023-07-16 13:55:36
+ * @LastEditTime: 2023-07-16 19:47:38
  * @FilePath: \frontend\src\inferface\loginResponse.ts
  * @Description: 响应response的解析接口
  */
@@ -180,5 +180,12 @@ export interface cardListItem {
 export interface queryCardListResponse {
     message: string
     code: number
-    List: cardListItem[]
+    list: cardListItem[]
+}
+
+/***********************************************************************************************/
+
+export interface transferResponse {
+    message: string
+    code: number
 }

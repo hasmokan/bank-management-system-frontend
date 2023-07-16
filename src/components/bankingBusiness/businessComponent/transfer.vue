@@ -1,48 +1,16 @@
 <template>
     <el-form ref="form" :model="sizeForm" label-width="auto" :label-position="labelPosition">
-        <el-form-item label="Activity name">
-            <el-input v-model="sizeForm.name" />
+        <el-form-item label="源卡卡号">
+            <el-input v-model="sizeForm.sourceCardNumber" />
         </el-form-item>
-        <el-form-item label="Activity zone">
-            <el-select v-model="sizeForm.region" placeholder="please select your zone">
-                <el-option label="Zone one" value="shanghai" />
-                <el-option label="Zone two" value="beijing" />
-            </el-select>
+        <el-form-item label="目标卡卡号">
+            <el-input v-model="sizeForm.targetCardNumber" />
         </el-form-item>
-        <el-form-item label="Activity time">
-            <el-col :span="11">
-                <el-date-picker
-                    v-model="sizeForm.date1"
-                    type="date"
-                    label="Pick a date"
-                    placeholder="Pick a date"
-                    style="width: 100%"
-                />
-            </el-col>
-            <el-col class="text-center" :span="1" style="margin: 0 0.5rem">-</el-col>
-            <el-col :span="11">
-                <el-time-picker
-                    v-model="sizeForm.date2"
-                    label="Pick a time"
-                    placeholder="Pick a time"
-                    style="width: 100%"
-                />
-            </el-col>
-        </el-form-item>
-        <el-form-item label="Activity type">
-            <el-checkbox-group v-model="sizeForm.type">
-                <el-checkbox-button label="Online activities" name="type" />
-                <el-checkbox-button label="Promotion activities" name="type" />
-            </el-checkbox-group>
-        </el-form-item>
-        <el-form-item label="Resources">
-            <el-radio-group v-model="sizeForm.resource">
-                <el-radio border label="Sponsor" />
-                <el-radio border label="Venue" />
-            </el-radio-group>
+        <el-form-item label="数额">
+            <el-input v-model="sizeForm.amount" />
         </el-form-item>
         <el-form-item>
-            <el-button type="primary" @click="onSubmit">Create</el-button>
+            <el-button type="primary" @click="onSubmit">转账</el-button>
             <el-button>Cancel</el-button>
         </el-form-item>
     </el-form>
@@ -51,23 +19,43 @@
 <script lang="ts" setup>
 import { reactive, ref } from 'vue'
 import type { EpPropMergeType } from 'element-plus/es/utils/vue/props/types'
+import axios from '@/axios/axios'
+import { ElMessage } from 'element-plus'
+import type { transferResponse } from '@/inferface/responseInterface'
 const labelPosition = ref<
     EpPropMergeType<StringConstructor, 'top' | 'right' | 'left', unknown> | undefined
 >('top')
 
 const sizeForm = reactive({
-    name: '',
-    region: '',
-    date1: '',
-    date2: '',
-    delivery: false,
-    type: [],
-    resource: '',
-    desc: ''
+    sourceCardNumber: '',
+    targetCardNumber: '',
+    amount: ''
 })
 
 function onSubmit() {
-    console.log('submit!')
+    axios
+        .post('/transaction/transfer', {
+            sourceCardNumber: sizeForm.sourceCardNumber,
+            targetCardNumber: sizeForm.targetCardNumber,
+            amout: sizeForm.amount
+        })
+        .then((response) => {
+            let result: transferResponse = response.data as unknown as transferResponse
+            if (result.code == -1)
+                ElMessage({
+                    showClose: true,
+                    message: result.message,
+                    type: 'error'
+                })
+            else {
+                ElMessage({
+                    showClose: true,
+                    message: result.message,
+                    type: 'success'
+                })
+            }
+        })
+        .catch((error) => {})
 }
 </script>
 

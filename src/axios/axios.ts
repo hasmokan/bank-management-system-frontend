@@ -2,7 +2,7 @@
  * @Author: 雄恺 陈 1021056159@qq.com
  * @Date: 2023-07-14 08:20:45
  * @LastEditors: 雄恺 陈 1021056159@qq.com
- * @LastEditTime: 2023-07-16 01:09:04
+ * @LastEditTime: 2023-07-16 19:14:30
  * @FilePath: \frontend\src\axios\axios.ts
  * @Description: axios基础封装
  * 包括基础配置，url和超时时间
@@ -29,6 +29,9 @@ export class Request {
         // 使用axios.create创建axios实例
         this.instance = axios.create(Object.assign(this.baseConfig, config))
 
+        //axios重要设置！！！
+        this.instance.defaults.withCredentials = true
+
         this.instance.interceptors.request.use(
             (config: InternalAxiosRequestConfig) => {
                 // 一般会请求拦截里面加token，用于后端的验证
@@ -44,7 +47,19 @@ export class Request {
                 return Promise.reject(err)
             }
         )
+        // 添加请求拦截器
+        // this.instance.interceptors.request.use(
+        //     (config) => {
+        //         // 添加 Origin 头部字段
+        //         config.headers['Origin'] = 'http://localhost:5173'
 
+        //         return config
+        //     },
+        //     (error) => {
+        //         return Promise.reject(error)
+        //     }
+        // )
+        //
         this.instance.interceptors.response.use(
             (res: AxiosResponse) => {
                 // 直接返回res，当然你也可以只返回res.data

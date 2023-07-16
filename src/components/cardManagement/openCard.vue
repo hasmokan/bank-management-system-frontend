@@ -2,7 +2,7 @@
  * @Author: 雄恺 陈 1021056159@qq.com
  * @Date: 2023-07-16 14:45:04
  * @LastEditors: 雄恺 陈 1021056159@qq.com
- * @LastEditTime: 2023-07-16 17:34:43
+ * @LastEditTime: 2023-07-16 19:12:54
  * @FilePath: \frontend\src\components\cardManagement\openCard.vue
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
 -->
@@ -72,7 +72,7 @@ function onSubmit() {
     console.log(useUserStore().idNumber, useUserStore().phoneNumber, useUserStore().accountNumber)
 
     axios
-        .post('/card/open', {
+        .post('http://localhost:8080/card/open', {
             transactionPassword: sizeForm.transactionPassword,
             phoneNumber: sizeForm.phoneNumber,
             idNumber: sizeForm.idNumber
