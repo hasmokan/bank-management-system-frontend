@@ -15,8 +15,8 @@ export const useLoginStore = defineStore('loginstate', {
     },
     actions: {
         // action内部不能使用箭头函数
-        registerId(id: string) {
-            this!.userId = id
-        }
+        // registerId(id: string) {
+        //     this!.userId = id
+        // }
     }
 })

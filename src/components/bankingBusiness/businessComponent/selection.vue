@@ -7,13 +7,7 @@
             </el-radio-group>
         </div>
         <br />
-        <el-form
-            ref="form"
-            :label-position="labelPosition"
-            :model="sizeForm"
-            :size="sizeForm.size"
-            label-width="auto"
-        >
+        <el-form ref="form" :label-position="labelPosition" :model="sizeForm" label-width="auto">
             <div v-if="sizeForm.size === 'balance'">
                 <el-form-item label="卡号">
                     <span>
@@ -77,8 +71,11 @@
 import axios from '@/axios/axios'
 import { reactive, ref } from 'vue'
 import { ElMessage } from 'element-plus'
-
-const labelPosition = ref('top')
+import type { transferResponse } from '@/inferface/responseInterface'
+import type { EpPropMergeType } from 'element-plus/es/utils/vue/props/types'
+const labelPosition = ref<
+    EpPropMergeType<StringConstructor, 'top' | 'right' | 'left', unknown> | undefined
+>('top')
 
 const sizeForm = reactive({
     size: 'balance',
