@@ -1,6 +1,6 @@
 <template>
     <div class="internationnal">
-        <img class="headimg" src="@/assets/img/international-img.jpg" alt="" />
+        <img class="headimg" src="@/assets/img/international-img.png" alt="" />
 
         <div class="centerbody">
             <div class="wrapper">

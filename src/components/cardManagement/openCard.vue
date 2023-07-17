@@ -9,7 +9,7 @@
 <template>
     <div class="root">
         <div class="header">
-            <img alt="" class="headImg" src="@/assets/img/card1.jpg" />
+            <img alt="" class="headImg" src="@/assets/img/card1.png" />
         </div>
         <div class="mainBody">
             <el-breadcrumb separator="/">

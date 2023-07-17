@@ -70,6 +70,7 @@
                         <personCard
                             @change-login-state="handleChangeLoginState"
                             v-model:loginState="loginState"
+                            v-model:card-number="userInfo.cardNumber"
                             :userName="userInfo.accountNumber"
                         ></personCard>
                         <!-- 搜索框 -->
@@ -245,15 +246,9 @@
                 </el-tab-pane>
                 <el-tab-pane label="注册" name="second">
                     <el-input v-model="registerData.accountNumber" placeholder="账号/用户名" />
-                    <el-input
-                        v-model="registerData.password"
-                        type="password"
-                        placeholder="密码"
-                        show-password
-                    />
+                    <el-input v-model="registerData.password" placeholder="密码" show-password />
                     <el-input
                         v-model="registerData.phoneNumber"
-                        type="password"
                         placeholder="手机号"
                         show-password
                     />
@@ -304,8 +299,10 @@ import personCard from '@/components/utils/personCard.vue'
 import type {
     loginAccountInfoResponse,
     registerAccountInfoResponse,
-    logoutAccountInfoResponse
+    logoutAccountInfoResponse,
+    queryCardListResponse
 } from '@/inferface/responseInterface'
+import { ElMessage } from 'element-plus'
 
 // button的登陆状态
 const loginState = ref(useLoginStore().getLoginState)
@@ -314,7 +311,8 @@ const userInfo = reactive({
     accountNumber: '',
     password: '',
     phoneNumber: '',
-    idNumber: ''
+    idNumber: '',
+    cardNumber: 0
 })
 
 //登陆数据
@@ -351,8 +349,6 @@ const PersonalLoginClick = () => {
 
 //处理个人登录
 const handlePersonalLogin = () => {
-    axios.get('/getInfo')
-
     axios
         .post('/login', {
             accountNumber: loginData.accountNumber,
@@ -379,6 +375,22 @@ const handlePersonalLogin = () => {
                     userInfo.accountNumber = useUserStore().accountNumber
                     userInfo.idNumber = useUserStore().idNumber
                     userInfo.password = loginData.password
+                    axios
+                        .get('/card/getList', {
+                            params: {
+                                idNumber: useUserStore().idNumber
+                            }
+                        })
+                        .then(function (response) {
+                            console.log(response)
+
+                            let result: queryCardListResponse =
+                                response.data as unknown as queryCardListResponse
+                            userInfo.cardNumber = result.list.length
+                        })
+                        .catch(function (error) {
+                            // console.log(error)
+                        })
                 }
                 nextTick()
             } else {
@@ -421,8 +433,58 @@ const handleChangeLoginState = () => {
     location.reload()
 }
 
-interface info {}
+onMounted(() => {
+    axios
+        .get('/getInfo')
+        .then((response) => {
+            console.log(response)
+            let result: loginAccountInfoResponse =
+                response.data as unknown as loginAccountInfoResponse
+            if (result.code == -1) {
+                ElMessage({
+                    showClose: true,
+                    message: result.message,
+                    type: 'error'
+                })
+            } else {
+                loginState.value = true
+                state.isLoginCorrect = 'true'
+                componentState.centerDialogVisible = false
+                userInfo.accountNumber = result.accountInfoDTO.accountNumber
+                if (typeof result === 'object' && result !== null && 'accountInfoDTO' in result) {
+                    const { accountInfoDTO } = result
+                    useUserStore().addNowAccount(
+                        accountInfoDTO.accountNumber,
+                        accountInfoDTO.idNumber,
+                        accountInfoDTO.permission,
+                        accountInfoDTO.phoneNumber
+                    )
+                    userInfo.accountNumber = useUserStore().accountNumber
+                    userInfo.idNumber = useUserStore().idNumber
+                    userInfo.password = loginData.password
+                }
+                axios
+                    .get('/card/getList', {
+                        params: {
+                            idNumber: useUserStore().idNumber
+                        }
+                    })
+                    .then(function (response) {
+                        console.log(response)
+
+                        let result: queryCardListResponse =
+                            response.data as unknown as queryCardListResponse
+                        userInfo.cardNumber = result.list.length
+                    })
+                    .catch(function (error) {
+                        // console.log(error)
+                    })
+            }
+        })
+        .catch(() => {})
+})
 </script>
+
 <style lang="scss" scoped>
 @font-face {
     font-family: AlimamaFangYuanTiVF-Thin;

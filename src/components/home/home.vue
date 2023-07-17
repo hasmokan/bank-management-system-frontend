@@ -67,11 +67,11 @@
                     <div class="label">集成工具 服务，轻松选择 便捷交易</div>
                 </div>
                 <div class="flex-bottom-box">
-                    <img class="img1" src="@/assets/img/case1.jpg" alt="" />
+                    <img class="img1" src="@/assets/img/case1.png" alt="" />
                     <div class="succ-case-text">
                         <div class="container">
                             <div class="pic">
-                                <img src="@/assets/img/1.jpg" />
+                                <img src="@/assets/img/1.png" />
                                 <!-- <i class="iconfont icon-licai">账户查询</i> -->
                             </div>
                             <div class="pic">
@@ -95,13 +95,13 @@
             </div>
             <div class="succ-header" style="height: 100px">
                 <div class="div1">很好用</div>
-                 <div class="diagonal-line"></div>
-                 <img class="img4" src="@/assets/img/11.png">
-                 <div class="div2">存钱取钱秒到账</div>
-                 <img class="img5" src="@/assets/img/22.png">
-                 <div class="div3">账单查询、办理分期更便捷</div>
-                 <img class="img6" src="@/assets/img/33.png">
-                 <div class="div4">账号支付怎么用？</div>
+                <div class="diagonal-line"></div>
+                <img class="img4" src="@/assets/img/11.png" />
+                <div class="div2">存钱取钱秒到账</div>
+                <img class="img5" src="@/assets/img/22.png" />
+                <div class="div3">账单查询、办理分期更便捷</div>
+                <img class="img6" src="@/assets/img/33.png" />
+                <div class="div4">账号支付怎么用？</div>
             </div>
             <div class="succ-case">
                 <div class="succ-case-container">
@@ -113,7 +113,7 @@
                 </div>
                 <div class="flex-bottom-box">
                     <div class="imgbox">
-                        <img class="img2" src="@/assets/img/case2.jpg" alt="" />
+                        <img class="img2" src="@/assets/img/case2.png" alt="" />
                     </div>
 
                     <div class="succ-case-text">
@@ -139,14 +139,14 @@
                 </div>-->
             </div>
             <div class="succ-header" style="height: 100px">
-                 <div class="div1">很方便</div>
-                 <div class="diagonal-line"></div>
-                 <img class="img4" src="@/assets/img/44.png">
-                 <div class="div2">购买理财产品有哪几个步骤？</div>
-                 <img class="img5" src="@/assets/img/55.png">
-                 <div class="div3">如何在线购买基金？</div>
-                 <img class="img6" src="@/assets/img/66.png">
-                 <div class="div4">如何为家庭选择保险产品</div>
+                <div class="div1">很方便</div>
+                <div class="diagonal-line"></div>
+                <img class="img4" src="@/assets/img/44.png" />
+                <div class="div2">购买理财产品有哪几个步骤？</div>
+                <img class="img5" src="@/assets/img/55.png" />
+                <div class="div3">如何在线购买基金？</div>
+                <img class="img6" src="@/assets/img/66.png" />
+                <div class="div4">如何为家庭选择保险产品</div>
             </div>
             <div class="succ-case">
                 <div class="succ-case-container">
@@ -157,23 +157,23 @@
                     <div class="label">贷款任选，轻松解决，闪电审批，一步到位</div>
                 </div>
                 <div class="flex-bottom-box">
-                    <img class="img1" src="@/assets/img/2.1.jpg" alt="" />
+                    <img class="img1" src="@/assets/img/2.1.png" alt="" />
                     <div class="succ-case-text">
                         <div class="container">
                             <div class="pic">
-                                <img src="@/assets/img/2.2.jpg" />
+                                <img src="@/assets/img/2.2.png" />
                                 <!-- <i class="iconfont icon-licai">账户查询</i> -->
                             </div>
                             <div class="pic">
-                                <img src="@/assets/img/2.3.jpg" />
+                                <img src="@/assets/img/2.3.png" />
                                 <!-- <div class="title">译</div> -->
                             </div>
                             <div class="pic">
-                                <img src="@/assets/img/2.4.jpg" />
+                                <img src="@/assets/img/2.4.png" />
                                 <!-- <div class="title">中</div> -->
                             </div>
                             <div class="pic">
-                                <img src="@/assets/img/2.5.jpg" />
+                                <img src="@/assets/img/2.5.png" />
                                 <!-- <div class="title">中</div> -->
                             </div>
                         </div>
@@ -183,13 +183,13 @@
             <div class="succ-header" style="height: 100px">
                 <div class="div1">真迅速</div>
                 <div class="diagonal-line"></div>
-                <img class="img4" src="@/assets/img/77.png">
+                <img class="img4" src="@/assets/img/77.png" />
                 <div class="div2">“快贷”如何计算利息？</div>
-                <img class="img5" src="@/assets/img/88.png">
+                <img class="img5" src="@/assets/img/88.png" />
                 <div class="div3">我都可以在哪方面贷款？</div>
-                <img class="img6" src="@/assets/img/99.png">
+                <img class="img6" src="@/assets/img/99.png" />
                 <div class="div4">贷款秒到账，还款利息低</div>
-           </div>
+            </div>
         </div>
     </el-main>
 </template>

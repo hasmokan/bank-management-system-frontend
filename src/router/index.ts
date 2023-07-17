@@ -10,7 +10,7 @@ import { createRouter, createWebHashHistory, RouteRecordRaw, createWebHistory } 
 const cardapply = () => import('../components/cardManagement/openCard.vue')
 const home = () => import('../components/home/home.vue')
 const transaction = () => import('../components/transaction/transaction.vue')
-const card = () => import('../components/cardManagement/card.vue')
+const card = () => import('../components/cardManagement/cardManage.vue')
 const deme = () => import('../components/domestic/domestic.vue')
 const bankbusiness = () => import('../components/bankingBusiness/bankingBusiness.vue')
 

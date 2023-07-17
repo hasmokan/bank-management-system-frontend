@@ -6,7 +6,7 @@
  * @FilePath: \frontend\src\components\bankingBusiness\bankingBusiness.vue
  * @Description: 银行业务 -->
 <template>
-    <img class="headimg" src="@/assets/img/ESG-img.jpg" alt="" />
+    <img class="headimg" src="@/assets/img/ESG-img.png" alt="" />
 
     <div class="bankingBusiness">
         <el-breadcrumb separator="/">
