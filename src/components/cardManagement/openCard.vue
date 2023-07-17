@@ -72,7 +72,7 @@ function onSubmit() {
     console.log(useUserStore().idNumber, useUserStore().phoneNumber, useUserStore().accountNumber)
 
     axios
-        .post('http://localhost:8080/card/open', {
+        .post('/card/open', {
             transactionPassword: sizeForm.transactionPassword,
             phoneNumber: sizeForm.phoneNumber,
             idNumber: sizeForm.idNumber

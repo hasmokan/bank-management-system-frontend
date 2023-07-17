@@ -7,12 +7,12 @@
  * @Description: 导航
  */
 import { createRouter, createWebHashHistory, RouteRecordRaw, createWebHistory } from 'vue-router'
-import cardapply from '../components/cardManagement/openCard.vue'
-import home from '../components/home/home.vue'
-import transaction from '../components/transaction/transaction.vue'
-import card from '../components/cardManagement/card.vue'
-import deme from '../components/domestic/domestic.vue'
-import bankbusiness from '../components/bankingBusiness/bankingBusiness.vue'
+const cardapply = () => import('../components/cardManagement/openCard.vue')
+const home = () => import('../components/home/home.vue')
+const transaction = () => import('../components/transaction/transaction.vue')
+const card = () => import('../components/cardManagement/card.vue')
+const deme = () => import('../components/domestic/domestic.vue')
+const bankbusiness = () => import('../components/bankingBusiness/bankingBusiness.vue')
 
 const routes: Array<RouteRecordRaw> = [
     {

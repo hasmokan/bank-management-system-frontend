@@ -1,5 +1,5 @@
 import { fileURLToPath, URL } from 'node:url'
-
+import resolveExternalsPlugin from 'vite-plugin-resolve-externals'
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import alias from '@rollup/plugin-alias'
@@ -53,6 +53,10 @@ export default defineConfig({
                 ]
             }
         })
+        // resolveExternalsPlugin({
+        //     vue: 'Vue',
+        //     elementPlus: 'element-plus'
+        // })
     ],
     resolve: {
         extensions: ['.mjs', '.js', '.ts', '.jsx', '.tsx', '.json', '.vue'],
@@ -69,6 +73,8 @@ export default defineConfig({
     },
     build: {
         rollupOptions: {
+            //忽略的打包项
+            // external: ['element-plus'],
             output: {
                 // https://github.com/rollup/rollup/blob/master/src/utils/sanitizeFileName.ts
                 sanitizeFileName(name) {

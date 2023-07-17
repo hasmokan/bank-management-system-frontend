@@ -32,7 +32,7 @@ const sizeForm = reactive({
 
 function onSubmit() {
     axios
-        .post('/transaction/transfer', {
+        .post('/transaction/deposit', {
             cardNumber: sizeForm.targetCardNumber,
             amout: sizeForm.amount
         })
