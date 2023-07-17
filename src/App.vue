@@ -282,7 +282,7 @@
 
 <script lang="ts" setup>
 //设置导航激活
-import { ref } from 'vue'
+import { onMounted, ref } from 'vue'
 import { reactive, nextTick } from 'vue'
 import { Delete, Edit, Search, Share, Upload } from '@element-plus/icons-vue'
 import { ArrowDown } from '@element-plus/icons-vue'
@@ -351,6 +351,8 @@ const PersonalLoginClick = () => {
 
 //处理个人登录
 const handlePersonalLogin = () => {
+    axios.get('/getInfo')
+
     axios
         .post('/login', {
             accountNumber: loginData.accountNumber,
@@ -418,6 +420,8 @@ const handleChangeLoginState = () => {
     loginState.value = false
     location.reload()
 }
+
+interface info {}
 </script>
 <style lang="scss" scoped>
 @font-face {
