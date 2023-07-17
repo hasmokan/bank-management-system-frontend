@@ -5,6 +5,8 @@ import vue from '@vitejs/plugin-vue'
 import alias from '@rollup/plugin-alias'
 import image from '@rollup/plugin-image'
 import externalGlobals from 'rollup-plugin-external-globals'
+import VitePluginImageMin from 'vite-plugin-imagemin'
+import viteCompression from 'vite-plugin-compression'
 // https://vitejs.dev/config/
 // eslint-disable-next-line no-control-regex
 const INVALID_CHAR_REGEX = /[\u0000-\u001F"#$&*+,:;<=>?[\]^`{|}\u007F]/g
@@ -13,7 +15,45 @@ export default defineConfig({
     optimizeDeps: {
         force: true // 强制进行依赖预构建
     },
-    plugins: [image(), alias(), vue()],
+    plugins: [
+        image(),
+        alias(),
+        vue(),
+        viteCompression({
+            verbose: true,
+            disable: false,
+            threshold: 5000,
+            algorithm: 'gzip',
+            ext: '.gz'
+        }),
+        VitePluginImageMin({
+            gifsicle: {
+                optimizationLevel: 7,
+                interlaced: false
+            },
+            optipng: {
+                optimizationLevel: 7
+            },
+            mozjpeg: {
+                quality: 20
+            },
+            pngquant: {
+                quality: [0.8, 0.9],
+                speed: 4
+            },
+            svgo: {
+                plugins: [
+                    {
+                        name: 'removeViewBox'
+                    },
+                    {
+                        name: 'removeEmptyAttrs',
+                        active: false
+                    }
+                ]
+            }
+        })
+    ],
     resolve: {
         extensions: ['.mjs', '.js', '.ts', '.jsx', '.tsx', '.json', '.vue'],
         alias: {
@@ -45,3 +85,12 @@ export default defineConfig({
     },
     base: './'
 })
+function viteImagemin(arg0: {
+    gifsicle: { optimizationLevel: number; interlaced: boolean }
+    optipng: { optimizationLevel: number }
+    mozjpeg: { quality: number }
+    pngquant: { quality: number[]; speed: number }
+    svgo: { plugins: ({ name: string } | { name: string; active: boolean })[] }
+}): import('vite').PluginOption {
+    throw new Error('Function not implemented.')
+}
