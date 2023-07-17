@@ -9,7 +9,7 @@
             </el-form-item>
             <el-form-item>
                 <el-button type="primary" @click="onSubmit">存款</el-button>
-                <el-button>Cancel</el-button>
+                <el-button>取消</el-button>
             </el-form-item>
         </el-form>
         <el-drawer
@@ -25,7 +25,7 @@
                 :label-position="labelPosition"
             >
                 <el-form-item label="卡号">
-                    <el-input v-model="sizeForm.sourceCardNumber" />
+                    <el-input v-model="sizeForm.targetCardNumber" />
                 </el-form-item>
                 <el-form-item label="密码">
                     <el-input type="password" v-model="sizeForm.transactionPassword" />
@@ -54,17 +54,20 @@ const sizeForm = reactive({
     targetCardNumber: '',
     amount: '',
     drawer: false,
-    transactionPassword: '',
-    sourceCardNumber: ''
+    transactionPassword: ''
 })
 
 function onSubmit() {
+    console.log(sizeForm.targetCardNumber, sizeForm.amount)
+
     axios
         .post('/transaction/deposit', {
             cardNumber: sizeForm.targetCardNumber,
-            amout: sizeForm.amount
+            amount: sizeForm.amount
         })
         .then((response) => {
+            console.log(response.data)
+
             let result: transferResponse = response.data as unknown as transferResponse
             if (result.code == -1) {
                 ElMessage({
@@ -90,7 +93,7 @@ const direction =
 const verify = () => {
     axios
         .post('/card/verify', {
-            cardNumber: sizeForm.sourceCardNumber,
+            cardNumber: sizeForm.targetCardNumber,
             transactionPassword: sizeForm.transactionPassword
         })
         .then((response) => {
@@ -108,6 +111,14 @@ const verify = () => {
                     type: 'success'
                 })
                 sizeForm.drawer = false
+                axios
+                    .post('/transaction/deposit', {
+                        cardNumber: sizeForm.targetCardNumber,
+                        amount: sizeForm.amount
+                    })
+                    .then(() => {
+                        console.log(response.data)
+                    })
             }
         })
         .catch((error) => {})

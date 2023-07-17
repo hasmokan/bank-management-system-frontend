@@ -60,7 +60,7 @@ function onSubmit() {
         .post('/transaction/transfer', {
             sourceCardNumber: sizeForm.sourceCardNumber,
             targetCardNumber: sizeForm.targetCardNumber,
-            amout: sizeForm.amount
+            amount: sizeForm.amount
         })
         .then((response) => {
             let result: transferResponse = response.data as unknown as transferResponse
@@ -102,6 +102,11 @@ const verify = () => {
                     showClose: true,
                     message: result.message + ' 转账成功!',
                     type: 'success'
+                })
+                axios.post('/transaction/transfer', {
+                    sourceCardNumber: sizeForm.sourceCardNumber,
+                    targetCardNumber: sizeForm.targetCardNumber,
+                    amount: sizeForm.amount
                 })
             }
         })

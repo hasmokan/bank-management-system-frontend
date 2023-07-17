@@ -61,7 +61,7 @@ function onSubmit() {
     axios
         .post('/transaction/withdraw', {
             cardNumber: sizeForm.targetCardNumber,
-            amout: sizeForm.amount
+            amount: sizeForm.amount
         })
         .then((response) => {
             let result: transferResponse = response.data as unknown as transferResponse
@@ -105,6 +105,10 @@ const verify = () => {
                     showClose: true,
                     message: result.message,
                     type: 'success'
+                })
+                axios.post('/transaction/withdraw', {
+                    cardNumber: sizeForm.targetCardNumber,
+                    amount: sizeForm.amount
                 })
                 sizeForm.drawer = false
             }

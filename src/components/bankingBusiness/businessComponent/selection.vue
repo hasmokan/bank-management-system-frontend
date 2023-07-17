@@ -60,7 +60,7 @@
                             v-if="sizeForm.size == 'transaction'"
                             :data="tableData"
                             stripe
-                            style="width: 100%"
+                            style="width: 100%; height: 700px; overflow-y: scroll"
                         >
                             <el-table-column prop="serialNumber" label="流水号" width="180" />
                             <el-table-column prop="time" label="时间" width="180" />
@@ -69,7 +69,7 @@
                             <el-table-column prop="sourceCardNumber" label="源卡号" width="180" />
                             <el-table-column prop="targetCardNumber" label="目标卡号" width="180" />
                             <el-table-column prop="balance" label="余额" width="180" />
-                            <el-table-column prop="transferAmount" label="转账金额" width="180" />
+                            <el-table-column prop="transferAmount" label="操作金额" width="180" />
                         </el-table>
                     </transition>
                 </el-form-item>
@@ -175,6 +175,7 @@ interface stateItem {
 }
 
 const handleSearchAccountStatement = () => {
+    tableData.value.length = 0
     axios
         .get('/transaction/queryStatement', {
             params: {
@@ -196,6 +197,9 @@ const handleSearchAccountStatement = () => {
                 for (let item of result.list) {
                     tableData.value.push(item)
                 }
+                tableData.value = [...tableData.value].sort(
+                    (a, b) => a.serialNumber - b.serialNumber
+                )
             }
         })
         .catch(() => {})
@@ -224,6 +228,11 @@ const verify = () => {
                     type: 'success'
                 })
                 sizeForm.drawer = false
+                axios.get('/transaction/queryStatement', {
+                    params: {
+                        cardNumber: sizeForm.cardnumber2
+                    }
+                })
             }
         })
         .catch((error) => {})

@@ -23,7 +23,10 @@
                 <el-breadcrumb-item>银行卡管理</el-breadcrumb-item>
             </el-breadcrumb>
 
-            <el-table :data="filterTableData" style="width: 100%">
+            <el-table
+                :data="filterTableData"
+                style="width: 100%; height: 1000px; overflow-y: scroll"
+            >
                 <el-table-column label="卡号" prop="cardNumber" />
                 <el-table-column label="绑定手机号" prop="phoneNumber" />
                 <el-table-column label="身份证" prop="idNumber" />
